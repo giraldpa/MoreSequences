@@ -6,8 +6,8 @@ This module lets you practice:
   -- CALLING functions
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Pattie Giraldo.
+"""  # DOne: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 import math
@@ -67,6 +67,17 @@ def run_test_generate_points_on_circle():
     # ------------------------------------------------------------------
     # Test 2:  (YOU write THIS test)
     # ------------------------------------------------------------------
+    expected = [rg.Point(125.0, 50.0),  # All numbers are approximate.
+                rg.Point(112.5, 71.7),
+                rg.Point(87.5, 71.7),
+                rg.Point(75.0, 50.0),
+                rg.Point(87.5, 28.3),
+                rg.Point(112.5, 28.3)]
+    circle = rg.Circle(rg.Point(170, 40), 49)
+    answer = generate_points_on_circle(circle, 8)
+
+    print('Expected:', expected)
+    print('Actual:  ', answer)
 
 
 def generate_points_on_circle(circle_for_points, number_of_points_to_generate):
@@ -110,7 +121,6 @@ def generate_points_on_circle(circle_for_points, number_of_points_to_generate):
     points = []
     degrees = 0
     for _ in range(number_of_points_to_generate):
-
         # --------------------------------------------------------------
         # Compute x and y of the point on the circumference of the
         # circle by using a polar representation.
@@ -174,6 +184,12 @@ def run_test_draw_points_on_circle():
     # ------------------------------------------------------------------
     # Test 4:  (YOU write THIS test)
     # ------------------------------------------------------------------
+    # Test 4:
+    title = 'DRAW_POINTS_ON_CIRCLE, test 4:  9 red dots.'
+    window = rg.RoseWindow(400, 400, title)
+    circle = rg.Circle(rg.Point(100, 200), 100)
+    draw_points_on_circle(window, circle, 9, 'red')
+    window.close_on_mouse_click()
 
 
 def draw_points_on_circle(window, circle, number_of_points, color):
@@ -437,7 +453,8 @@ def run_test_fancy_polygon():
     # ------------------------------------------------------------------
 
 
-def fancy_polygon(window, circle, number_of_lines, hops_to_next_point, color, thickness):
+def fancy_polygon(window, circle, number_of_lines, hops_to_next_point, color,
+                  thickness):
     """
     What comes in:
       -- an rg.RoseWindow
